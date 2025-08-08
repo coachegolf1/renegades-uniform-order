@@ -71,6 +71,22 @@ const ITEMS: ItemDef[] = [
 
 type OrderState = Record<string, { size: string; qty: number }>;
 
+// Top of file (module scope), above `export default function App()`
+function Field({
+  label,
+  children,
+}: {
+  label: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <label className="block mb-4">
+      <span className="block text-sm font-medium text-neutral-700">{label}</span>
+      <div className="mt-1">{children}</div>
+    </label>
+  );
+}
+
 export default function App() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -153,18 +169,18 @@ export default function App() {
     }
   };
 
-  const Field = ({
-    label,
-    children,
-  }: {
-    label: string;
-    children: React.ReactNode;
-  }) => (
-    <label className="block mb-4">
-      <span className="block text-sm font-medium text-neutral-700">{label}</span>
-      <div className="mt-1">{children}</div>
-    </label>
-  );
+  // const Field = ({
+    // label,
+    // children,
+  // }: {
+    // label: string;
+    // children: React.ReactNode;
+  // }) => (
+    // <label className="block mb-4">
+      // <span className="block text-sm font-medium text-neutral-700">{label}</span>
+      // <div className="mt-1">{children}</div>
+    // </label>
+  // );
 
   if (submitted) {
     return (
