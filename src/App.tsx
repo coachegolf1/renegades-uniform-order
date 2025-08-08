@@ -153,12 +153,17 @@ export default function App() {
         })),
       };
 
-      const res = await fetch(GOOGLE_APPS_SCRIPT_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-        redirect: "follow",
-      });
+      // const res = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+        // method: "POST",
+        // headers: { "Content-Type": "application/json" },
+        // body: JSON.stringify(payload),
+        // redirect: "follow",
+      // });
+	  const res = await fetch(GOOGLE_APPS_SCRIPT_URL, {
+  method: "POST",
+  headers: { "Content-Type": "text/plain;charset=utf-8" }, // <- key!
+  body: JSON.stringify(payload),
+});
 
       if (!res.ok) throw new Error(`Submit failed: ${res.status}`);
       setSubmitted(true);
