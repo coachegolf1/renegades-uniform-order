@@ -111,10 +111,10 @@ const ITEMS: ItemDef[] = [
   },
   {
     key: "practiceJersey",
-    label: "Practice Jersey (x2)",
+    label: "Practice Jersey",
     sizes: JERSEY_SIZES,
-    defaultQty: 2,
-    lockQty: true,
+    defaultQty: 0,
+    lockQty: false,
     imageUrl: "/items/practice-jersey.png",
   },
 ];
