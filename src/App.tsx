@@ -282,7 +282,7 @@ export default function App() {
                 placeholder="11U, 12U, etc."
               />
             </Field>
-            <Field label="POC Email">
+            <Field label="Parent Email">
               <input
                 type="email"
                 className="w-full rounded-xl border p-2"
@@ -291,7 +291,7 @@ export default function App() {
                 required
               />
             </Field>
-            <Field label="POC Phone">
+            <Field label="Parent Phone">
               <input
                 type="tel"
                 className="w-full rounded-xl border p-2"
