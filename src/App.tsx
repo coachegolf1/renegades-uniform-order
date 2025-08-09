@@ -111,7 +111,7 @@ const ITEMS: ItemDef[] = [
   },
   {
     key: "practiceJersey",
-    label: "Practice Jersey",
+    label: "Practice Jerseys",
     sizes: JERSEY_SIZES,
     defaultQty: 0,
     lockQty: false,
