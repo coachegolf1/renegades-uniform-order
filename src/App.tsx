@@ -64,6 +64,7 @@ type ItemDef = {
   label: string;
   sizes: string[];
   defaultQty: number;
+  minQty: number;
   lockQty: boolean;
   imageUrl?: string;
 };
@@ -154,6 +155,13 @@ export default function App() {
   const validPhone = (phone: string) => /[\d\-\s().+]{7,}/.test(phone);
 
   const validate = () => {
+	for (const it of ITEMS) {
+  const { qty } = order[it.key];
+  if (it.lockQty && qty !== it.defaultQty)
+    return `${it.label} must be quantity ${it.defaultQty}.`;
+  if (qty < it.minQty)
+    return `${it.label} must be at least ${it.minQty}.`;
+}  
     if (!player.firstName.trim() || !player.lastName.trim())
       return "Player name is required.";
     if (!validEmail(player.email)) return "Please enter a valid email.";
@@ -371,11 +379,11 @@ export default function App() {
                       }
                       disabled={it.lockQty}
                     >
-                      {qtyOptions.map((n) => (
-                        <option key={n} value={n}>
-                          {n}
-                        </option>
-                      ))}
+                      {qtyOptions
+  .filter((n) => n >= it.minQty)     // ← hides 0 when minQty is 1
+  .map((n) => (
+    <option key={n} value={n}>{n}</option>
+))}
                     </select>
                   </Field>
                 </div>
