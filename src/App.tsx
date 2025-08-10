@@ -124,6 +124,15 @@ const ITEMS: ItemDef[] = [
     lockQty: false,
     imageUrl: "/items/practice-jersey.png",
   },
+  {
+    key: "sweatShirt",
+    label: "Sweatshirt",
+    sizes: JERSEY_SIZES,
+    defaultQty: 0,
+    minQty: 0,
+    lockQty: false,
+    imageUrl: "/items/sweatshirt.png",
+  },
 ];
 
 type OrderState = Record<string, { size: string; qty: number }>;
